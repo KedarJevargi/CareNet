@@ -21,10 +21,10 @@ async def login_user(request: Request, data: userSchema.LoginUser):
     result = await userController.login_user_controller(request, data)
     return result
 
+
 @router.post("/chat", status_code=200)
 async def chat(chat_data: chatSchema.SendChat):
-    # This endpoint is for sending a chat message with a question.
-    result = await chatController.get_ai_response_controller(chat_data)
+    result = chatController.get_ai_response_controller(chat_data)  # Remove await
     return result
 
 

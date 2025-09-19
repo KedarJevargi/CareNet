@@ -18,6 +18,7 @@ FRONTEND_URL = os.getenv("FRONTEND_URL", "*")
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     await connect_DB(app)  
+    
     yield
     await disconnect_DB(app)
     
